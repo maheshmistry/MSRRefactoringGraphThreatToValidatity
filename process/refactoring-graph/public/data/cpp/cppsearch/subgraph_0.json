@@ -1,1 +1,0 @@
-{"info":{"project":"refdiff-study","commits":1,"id":1,"language":"C"},"commits_list":["ba97aea1659e249a3a58ecc5f583ee2056a90ad8"],"edges":[{"id":1,"before":"sequencer.c","after":"sequencer.c","ref":"EXTRACT","sha1":"ba97aea1659e249a3a58ecc5f583ee2056a90ad8"}]}
