@@ -1,0 +1,1 @@
+{"info":{"project":"AngularJs","developers":0,"edges":0,"vertices":0,"commits":1,"id":1,"agedays":0,"refactorings":0,"language":"JS"},"commits_list":["840b5f0a7634efdf4d6ed81a52e66fc0e0620127"],"edges":[{"id":1,"before":"src/ngRoute/route.js","after":"src/routeToRegExp.js","ref":"MOVE_RENAME","sha1":"840b5f0a7634efdf4d6ed81a52e66fc0e0620127"}]}
