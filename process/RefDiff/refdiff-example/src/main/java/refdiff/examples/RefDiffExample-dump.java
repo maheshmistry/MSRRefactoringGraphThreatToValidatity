@@ -25,7 +25,7 @@ public class RefDiffExample {
 //		CModeReffDif cMRD = new CModeReffDif("https://github.com/refdiff-study/git.git", "refdiff-study","ba97aea1659e249a3a58ecc5f583ee2056a90ad8");
 //		cMRD.checkCommits();
 		
-		JavaModeReffDif2 javaMRD = new JavaModeReffDif2("https://github.com/airbnb/lottie-android.git", "lottie-search","2ccdac06f95f68752abdede79770f5a8904e7e12");
+		JavaModeReffDif javaMRD = new JavaModeReffDif("https://github.com/airbnb/lottie-android.git", "lottie-android","2ccdac06f95f68752abdede79770f5a8904e7e12");
 		javaMRD.checkCommits();
 
 	}
