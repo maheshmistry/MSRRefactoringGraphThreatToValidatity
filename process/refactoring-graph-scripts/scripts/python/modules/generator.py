@@ -17,6 +17,7 @@ def extract_graph_data_from_csv(language, csv_file_name):
   edges = {}
   dictionary = datasetconfig.get_dictionary()
   
+  print(dataset)
   for index, row in dataset.iterrows():
     refactoring = row.get('refactoring_name')
     entity_before = row.get('entity_before_full_name').replace(" ", "")
@@ -162,7 +163,7 @@ def contains_different_commits(subgraph):
 
 #-------------------------------------------------------------
 def save_graph_to_html(language, config_graphviz):
-  path = '../../dataset/saner-2020/graphviz/{}'.format(config_graphviz.get('project'))
+  path = '../../../../data/dataset/saner-2020/graphviz/{}'.format(config_graphviz.get('project'))
   file_name = '{}_{}_{}.html'.format(config_graphviz.get('label_group'), util.get_name_project_formated(config_graphviz.get('project')), config_graphviz.get('id'))
   if os.path.exists('{}/{}'.format(path,file_name)):
     print('ERRO: File exists {}/{}'.format(path,file_name))
@@ -214,7 +215,8 @@ def find_disconnected_subgraphs():
 
   for project_name in datasetconfig.get_java_projects():
     #Read CSV files
-    refactorings_file = '../../dataset/saner-2020/refactorings/refactorings_{}_selected_operations.csv'.format(util.get_name_project_formated(project_name))
+    refactorings_file = '../../../../data/dataset/saner-2020/refactorings/refactorings_{}_selected_operations.csv'.format(util.get_name_project_formated(project_name))
+    print(format(util.get_name_project_formated(project_name)))
     graph_data = extract_graph_data_from_csv(language, refactorings_file)
     
     #Create refactoring graphs
@@ -225,8 +227,8 @@ def find_disconnected_subgraphs():
     groups_subgraph = split_supgraphs_atomic_and_overtime(subgraphs)
     
     #Save results
-    util.write_json(groups_subgraph.get('subgraphs_same_commit'), '../../dataset/saner-2020/graphs/', 'atomic_subgraphs_{}.json'.format(util.get_name_project_formated(project_name)))
-    util.write_json(groups_subgraph.get('subgraphs_different_commit'), '../../dataset/saner-2020/graphs/', 'overtime_subgraphs_{}.json'.format(util.get_name_project_formated(project_name)))
+    util.write_json(groups_subgraph.get('subgraphs_same_commit'), '../../../../data/dataset/saner-2020/graphs/', 'atomic_subgraphs_{}.json'.format(util.get_name_project_formated(project_name)))
+    util.write_json(groups_subgraph.get('subgraphs_different_commit'), '../../../../data/dataset/saner-2020/graphs/', 'overtime_subgraphs_{}.json'.format(util.get_name_project_formated(project_name)))
 
   return
   
@@ -237,12 +239,12 @@ def create_views():
 
   for project_name in datasetconfig.get_java_projects():
     #over time graphs
-    json_graphs_different_commit = '../../dataset/saner-2020/graphs/overtime_subgraphs_{}.json'.format(util.get_name_project_formated(project_name))
+    json_graphs_different_commit = '../../../../data/dataset/saner-2020/graphs/overtime_subgraphs_{}.json'.format(util.get_name_project_formated(project_name))
     subgraphs_different_commit = util.read_json(json_graphs_different_commit)
     create_visualization(language, project_name, subgraphs_different_commit)
 
     #atomic graphs
-    json_graphs_same_commit = '../../dataset/saner-2020/graphs/atomic_subgraphs_{}.json'.format(util.get_name_project_formated(project_name))
+    json_graphs_same_commit = '../../../../data/dataset/saner-2020/graphs/atomic_subgraphs_{}.json'.format(util.get_name_project_formated(project_name))
     subgraphs_same_commit = util.read_json(json_graphs_same_commit)
     create_visualization(language, project_name, subgraphs_same_commit)
 

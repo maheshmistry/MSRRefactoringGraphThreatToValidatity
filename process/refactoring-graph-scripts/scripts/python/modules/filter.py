@@ -198,8 +198,8 @@ def filter_core_elements():
 
   language = 'java'
   for project_name in datasetconfig.get_java_projects():
-    commits_file = '../../dataset/saner-2020/commits/commits_{}.csv'.format(util.get_name_project_formated(project_name))
-    refactorings_file = '../../dataset/saner-2020/refactorings/refactorings_{}.csv'.format(util.get_name_project_formated(project_name))
+    commits_file = '../../../../data/dataset/saner-2020/commits/commits_{}.csv'.format(util.get_name_project_formated(project_name))
+    refactorings_file = '../../../../data/dataset/saner-2020/refactorings/refactorings_{}.csv'.format(util.get_name_project_formated(project_name))
 
     #process commits    
     commits = extract_commits_from_csv(commits_file)    

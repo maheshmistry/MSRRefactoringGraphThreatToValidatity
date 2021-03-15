@@ -9,7 +9,7 @@ def get_subgraphs_properties():
   head = 'id;project;vertices;edges;age_days;developers;distinct_operations;commits'
   lines = []
   for project_name in projects:
-    subgraphs = util.read_json('../../dataset/saner-2020/graphs/overtime_subgraphs_{}.json'.format(util.get_name_project_formated(project_name)))
+    subgraphs = util.read_json('../../../../data/dataset/saner-2020/graphs/overtime_subgraphs_{}.json'.format(util.get_name_project_formated(project_name)))
     for subgraph in subgraphs:
       id = subgraph.get('id_intra_project')
       vertices = len(prop.get_vertices(subgraph))
@@ -20,12 +20,12 @@ def get_subgraphs_properties():
       commits = len(prop.get_commits(subgraph))
       line = '{};{};{};{};{};{};{};{}'.format(id,project_name,vertices,edges,age_days,developers,distinct_operations,commits)
       lines.append(line)
-  util.write_csv('../../dataset/saner-2020/subgraphs_properties.csv', head, lines)
+  util.write_csv('../../../../data/dataset/saner-2020/subgraphs_properties.csv', head, lines)
   pass
 
 def graph_generator(option):
   options = {
-    0: sys.exit,
+    0: sys.exit(),
     1: generator.find_disconnected_subgraphs,
     2: generator.create_views,
     3: get_subgraphs_properties
