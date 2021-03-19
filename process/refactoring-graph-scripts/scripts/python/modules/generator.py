@@ -213,7 +213,7 @@ def find_disconnected_subgraphs():
 
   language = 'java'
 
-  for project_name in datasetconfig.get_java_projects():
+  for project_name in datasetconfig.get_cpp_projects():
     #Read CSV files
     refactorings_file = '../../../../data/dataset/refactorings/refactorings_{}_selected_operations.csv'.format(util.get_name_project_formated(project_name))
     print(format(util.get_name_project_formated(project_name)))
