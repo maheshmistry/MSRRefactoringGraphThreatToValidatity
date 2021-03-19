@@ -1,15 +1,34 @@
 # MSRRefactoringGraphReproduce
 
-This repository is the reproduction of the paper "Refactoring Graphs: Assessing Refactoring over Time" by Aline Brito, André C. Hora, Marco Tulio Valente. 
+This repository is the threat to validatity experiment of the paper "Refactoring Graphs: Assessing Refactoring over Time" by Aline Brito, André C. Hora, Marco Tulio Valente. 
 DBPL: https://dblp.org/rec/conf/wcre/BritoHV20.html
 
-The repo contains 3 project:
+The experiment in this repo includes use of modified version of 2 existing project:
 
 RefDiff: https://github.com/maheshmistry/MSRRefactoringGraphReproduce/tree/main/process/RefDiff
-Refactoring Graph: https://github.com/maheshmistry/MSRRefactoringGraphReproduce/tree/main/process/refactoring-graph
 Refactoring Graph Script: https://github.com/maheshmistry/MSRRefactoringGraphReproduce/tree/main/process/refactoring-graph-scripts
 
-## Installation
+## Baseline:
+
+### Requirements
+   For Java Project:
+        Install Java (Optional, if you already have java and JDK installed no need to do this step)
+        1. Go to link: https://www.java.com/en/download/
+        2. Click on "Agree and start free download".
+        3. After the download finish, run the "jre-8u281.exe" file.
+        4. Click on install and after successful install finish it.
+        5. You have sucessfully installed java.
+        6. To confirm the successful install run "java -verison" in terminal and you should see the versions.
+
+   For Python Project:
+        Python 3+ : https://www.python.org/downloads/
+        Pip : https://pypi.org/project/pip/
+        Jupyter Notebook(little IDE approach but it is simple way to display charts): https://jupyter.org/install
+
+### Installation
+
+First of all, clone the project: ``` git clone https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity.git``` 
+Next go into the directory ```cd MSRRefactoringGraphThreatToValidatity```
 
 #### RefDiff project:
 
@@ -19,15 +38,13 @@ Github: https://github.com/alinebrito/RefDiff
 
 To run java code following steps needs to be followed:
 
+Run this command:
+
 ```
-1. Go to 'RefDiff' folder in 'process' folder.(/process/RefDiff)
-2. import all the projects in the eclipse.
-3. Go to 'RefDIff' project' and open refdiff.examples' package.
-4. Open 'RefdiffExample.java' file and run it as 'java project'.
-5. Once everything is done output will be csv(temp.csv) file.
-6. This csv will be located in the 'RefDiff' folder.
-7. This csv will be used in python script.
+java -jar process/JavaProjects.jar
 ```
+
+The command will take csv file data (/data/dataset/saner-2020/java_git_projects.csv), which contains pre-selected Java project's github links. Each project is downloaded locally and refactoring operations between commits and other various details are given as output.(Example below)
 
 Output Ex: 
 
@@ -39,24 +56,24 @@ Output Ex:
 
 #### Refactoring Graph Generator scripts project:
 
-The project takes the csv file from the RefDiff project and generate Refactoring sub graphs you need to run the python script.
+The project takes the refactoring csv file from the RefDiff project and generate Refactoring sub graphs you need to run the python script.
 Github: https://github.com/alinebrito/refactoring-graph-scripts
 
 Follow the steps below:
 
-1. Put the csv file in "/process/refactoring-graph-scripts/dataset/saner-2020/refactorings" folder and rename it as refactorings_{Project_Name}_selected_operations.csv (e.g: refactorings_PhilJay_MPAndroidChart_selected_operations.csv)
+1. Install all requirement packages:  ``` pip install /process/requirements.txt```
+2. Run the IPython Notebook: ```cd /process/refactoring-graph-scripts/scripts/python/``` and than ```jupyter notebook```
+3. Click on the RunThis.ipynb
+4. Run the program cells.
+5. You will presented with 3 options after that: 
 
-2. Run the graph_generate.py file at /process/refactoring-graph-scripts/scripts/python/ as ``` python graph_generate.py ``` or ``` python3 graph_generate.py ```
+-> Select option 1 to Generate the refactoring subgraphs. See the results in /data/dataset/saner-2020/graphs.
+-> Select option 2 to Generate views of refactoring subgraphs. See the results in /data/dataset/saner-2020/graphviz.
+-> Select option 3 to Generate properties of refactoring subgraphs. See the results in /data/dataset/saner-2020/subgraphs_properties.csv.
 
-3.You will presented with 3 options after that: 
-
--> Select option 1 to Generate the refactoring subgraphs. See the results in dataset/saner-2020/graphs.
--> Select option 2 to Generate views of refactoring subgraphs. See the results in dataset/saner-2020/graphviz.
--> Select option 3 to Generate properties of refactoring subgraphs. See the results in dataset/saner-2020/subgraphs_properties.csv.
-    
- #### Research Questions Reproduction
- 
-Run ResearchQuestionChart.py/ipynb file at /process/refactoring-graph-scripts/scripts/python/ in python or jupyter notebook to generate data charts for the research questions in paper.
+6. Select 1, which will take refactoring csv file produced from RefDiff project. and make bunch of subgraphs csv files for each Java Project.
+7. Select 3 to generate statistical properties of the subgraphs, this will take all the subgraphs and make a single properties csv file.
+8. Running cells after that will make chart which answers the Research questions mentioned in the paper.
 
 #### Research Questions Results:
      
@@ -78,25 +95,6 @@ RQ3 - What Is the Age of Refactoring Subgraphs?
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphReproduce/blob/main/data/rq3-4.png?raw=true)
 
 
-#### Refactoring Graphs Viewer project:
-
-This was not the part of the paper but we found it as a good tool for visualisation.
-
-This project is for the visual representation of the refactoring Subgraphs generated from 2nd option of Refactoring Graph script programm.
-
-Github: https://github.com/alinebrito/refactoring-graph
-Example: https://refactoring-graph.github.io/#/elastic/elasticsearch/713
-
-This is a React Js project, So NodeJS and npm is required.
-
-Before you start the project put the 'subgraph.json' files in data folder (process/refactoring-graph/public/data) of the respective project.
-
-To setup this project run command:
-```npm install```
-
-To run this project
-```npm start```
-
 ### Delta
 
 #### Process Delta:
@@ -106,4 +104,32 @@ To run this project
 * The data analysis code for the research questions was still wrote by us as that was not the part of authors code.
 
 #### Data Delta:
-* Data was avaible easily as it was open source Github repos. 
+* Data was avaible easily as it was open source Github repo's link. 
+
+
+## Experiment:
+
+### Threat:
+
+The one threat of validation is that for the research only Java Projects have been processed.
+
+### Traces:
+
+From the Paper: “Generalization of the results. We analyzed 1,150 refactoring subgraphs from 10 popular and open-source Java systems. Therefore, our dataset is built over credible and real-world software systems. Despite these observations, our findings—as usual in empirical software engineering—may not be directly generalized to other systems, particularly commercial, closed source, and the ones implemented in other languages than Java. Besides that, we focus our study on eight refactorings at the method level. Thus, other refactoring types can affect the size of subgraphs. We plan to extend this research to cover software systems implemented in other programming languages and refactorings at the class level.”
+
+### Theory:
+
+The first point is considered to be a threat because researchers have only processed Java Projects and result obtained from them cannot be generalized to other languages also (e.g: C and JavaScript). We will try to process the Project of C Language and Javascript and get refactoring types from them to analyze their data and compare them to other languages.
+
+### Feasibility:
+
+The first major threat mentioned by authors was that all the processed projects were open-source, thus limiting them to work on commercial and closed source projects. We cannot also perform the analysis on closed or commercial projects as we don't have access to them.
+
+Many Threats of validity were given a proper reason as to why they are not implemented like: using a third-party tool called “REFDIFF” for getting refactoring. 
+
+Here, authors have also mentioned the performance of another tool for getting refactoring types called “RMINER” as this tool performs better than REFDIFF ( F-measure of 92% (precision: 98%; recall 87%) improving on REFDIFF ’s overall accuracy.) but it only works for Java Language. 
+
+Authors have also mentioned removing some methods like constructors and test methods as they don't have behaviours as usual methods. Also, the processing of the project is limited to its main branch as other branches can be unstable or experimental.
+
+### Implementation
+
