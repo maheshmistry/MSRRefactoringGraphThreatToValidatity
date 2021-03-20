@@ -166,6 +166,24 @@ Steps followed for experiment implementation:
    
 ### Results:
 
+Projects Used:
+
+Java:
+
+| id | Project | GitLink | No. Commits |
+| ------------ | ------------- | ------------- | ------------- |
+| 1 | airbnb/lottie-android  | https://github.com/airbnb/lottie-android.git  | 1278  |
+| 2 | square/retrofit  | https://github.com/square/retrofit.git  | 1865  |
+| 3 | PhilJay/MPAndroidChart  | https://github.com/PhilJay/MPAndroidChart.git  | 2068  |
+
+C++:
+
+| id | Project | GitLink | No. Commits |
+| ------------ | ------------- | ------------- | ------------- |
+| 1 | facebook/rocksdb  | https://github.com/facebook/rocksdb.git  | 9841  |
+| 2 | sqlitebrowser/sqlitebrowser  | https://github.com/sqlitebrowser/sqlitebrowser.git  | 3544  |
+| 3 | KevinOConnor/klipper  | https://github.com/KevinOConnor/klipper  | 3687  |
+
 #### As mentioned before, we have used only 3 github projects for each Language, so they are in lesser quantity than Baseline charts.
 
 RQ1 - What Is the Size of Refactoring Subgraphs?
@@ -214,5 +232,5 @@ C++:
 We changed code to use general languages to process but we kept process almost as same as Baseline.
 
 ### Data
-We used projects for more Languages like C++. Also, we downloaded the data again for Assignment 3. So, any new commits for the used projects were also part of the contribution in stats.
+We used projects for more Languages like C++. Also, we downloaded the data again for Assignment 3. So, any new commits for the used projects were also part of the contribution in stats. We reduced the no. of projects to work with the memory issue.
 
