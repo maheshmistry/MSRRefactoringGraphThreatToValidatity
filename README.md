@@ -169,23 +169,33 @@ Steps followed for experiment implementation:
 #### As mentioned before, we have used only 3 github projects for each Language, so they are in lesser quantity than Baseline charts.
 
 RQ1 - What Is the Size of Refactoring Subgraphs?
+
 --No. of Vertices:
 Java: 
+
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/java-rq-11.png?raw=true)
+
 C++
+
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-11.png?raw=true)
 
 --No. of Edges:
 Java: 
+
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/java-rq-12.png?raw=true)
+
 C++
+
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-12.png?raw=true)
 
 RQ2 - How Many Commits Are in Refactoring Subgraphs?
 
 Java:
+
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-2.png?raw=true)
+
 C++:
+
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-2.png?raw=true)
 
 RQ3 - What Is the Age of Refactoring Subgraphs?
