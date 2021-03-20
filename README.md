@@ -171,6 +171,7 @@ Steps followed for experiment implementation:
 RQ1 - What Is the Size of Refactoring Subgraphs?
 
 --No. of Vertices:
+
 Java: 
 
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/java-rq-11.png?raw=true)
@@ -180,6 +181,7 @@ C++
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-11.png?raw=true)
 
 --No. of Edges:
+
 Java: 
 
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/java-rq-12.png?raw=true)
@@ -192,7 +194,7 @@ RQ2 - How Many Commits Are in Refactoring Subgraphs?
 
 Java:
 
-![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-2.png?raw=true)
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/java-rq-2.png?raw=true)
 
 C++:
 
@@ -201,8 +203,11 @@ C++:
 RQ3 - What Is the Age of Refactoring Subgraphs?
 
 Java:
-![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-3.png?raw=true)
+
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/java-rq-3.png?raw=true)
+
 C++:
+
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-3.png?raw=true)
 
 ### Process
