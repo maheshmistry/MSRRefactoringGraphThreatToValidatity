@@ -1,4 +1,4 @@
-# MSRRefactoringGraphReproduce
+# MSRRefactoringThreatToValidatity
 
 This repository is the threat to validatity experiment of the paper "Refactoring Graphs: Assessing Refactoring over Time" by Aline Brito, André C. Hora, Marco Tulio Valente. 
 DBPL: https://dblp.org/rec/conf/wcre/BritoHV20.html
@@ -132,4 +132,72 @@ Here, authors have also mentioned the performance of another tool for getting re
 Authors have also mentioned removing some methods like constructors and test methods as they don't have behaviours as usual methods. Also, the processing of the project is limited to its main branch as other branches can be unstable or experimental.
 
 ### Implementation
+
+Steps followed for experiment implementation:
+
+1. First we collected top 10(based on stars) github projects which as major language C++ and Javascript.
+2. Initial RefDiff project was manuel process, where we had to give each project's link to generate refactoring file, We changed that to read from csv file(/data/dataset/java_git_projects.csv) and process every given project in csv file automatically on command call.
+3. A jar file was created to run the RefDiff project and generate refactoring files.
+4. The working of the RefDiff is in a waý that each commit is compared to given number of backward commit (e.g: If given 500, each commit of the project will be compared and look for refactoring operation to previous 500 commits only.) But usually each commit should be compared to each commit for better data. But while performing this most of the projects who has more than 10000 commits were thrownig memoery exceptions due to our system's low memory so we couldnt produce refactoring operations for all the projects. Than we selected projects with lowest 3 no. of commits for each language(Java/C++/Javascript).
+5. Further we also found that RefDiff has problems with processing Javascript project, while not being able to solve all errors we dropped to check Javascript and focused only on Java and C++.
+6. Refactoring Graphs(Python) part of the experiment was also changed to generate graphs for general language as previously Java project's data were hardcoded into that.
+7. Option to generate vies of the graphs was dropped as it was not needed for the experiment.
+8. To generate charts, a python notebook was created(/process/refactoring-graph-scripts/scripts/python/RunThis.ipynb).
+
+### Process of Generation
+
+1. Generate Refactoing files
+   --Project's Github Links -- Provided via csv file(/data/dataset/{language}_git_projects.csv)
+   -- Contains of this file can be changed to generate refactoring operations file for any other project. But, take care of the language(dont put C++ project in Java file)
+   -- To generate that run ``` java -jar /process/JavaProjects.jar ```
+   -- Refactoring file will be generated at /data/dataset/refactorings/refactorings_{Github UserName}_{projectName}_selected_operations.csv
+   
+2. Generate Refactoring Subgraphs and Subgraph Properties
+   -- We have changed code for both feature to genearate refactoring subgraphs and its properties to process any given language not only java but to get input for that from user via notebook or command required to change a lot of structure of the project. So, we created the csv file for them and already uploaded them in repo.
+   -- Refactoring Subgraphs file can seen at: /data/dataset/graphs/overtime_subgraphs_{Github UserName}_{projectName}.json
+   -- Subgraph Properties file can be seen at: /data/dataset/{Language}_subgraphs_properties.csv
+3. Generate charts for the Subgraph properties
+   -- ``` cd /process/refactoring-graph-scripts/scripts/python/ ```
+   Run the above command to go the scripts folder and open Jupyter Notebook: ``` jupyter notebook``` 
+   -- Click and open RunThis.ipynb. Run the program cells. Second cell will ask for Language option, chosse from Java or C++, So specfic subgraph properties file will be loaded. E.g: If choosen C++ the charts generated in further cells will be from C++ subgraphs properties.
+   -- To get charts of another language run the Language option cell again and choose desired language and run the chart cells.
+   
+   -- We made different cells for each chart, as to generate multiple chart single cell was very complex process.
+   
+### Results:
+
+#### As mentioned before, we have used only 3 github projects for each Language, so they are in lesser quantity than Baseline charts.
+
+RQ1 - What Is the Size of Refactoring Subgraphs?
+--No. of Vertices:
+Java: 
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/java-rq-11.png?raw=true)
+C++
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-11.png?raw=true)
+
+--No. of Edges:
+Java: 
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/java-rq-12.png?raw=true)
+C++
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-12.png?raw=true)
+
+RQ2 - How Many Commits Are in Refactoring Subgraphs?
+
+Java:
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-2.png?raw=true)
+C++:
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-2.png?raw=true)
+
+RQ3 - What Is the Age of Refactoring Subgraphs?
+
+Java:
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-3.png?raw=true)
+C++:
+![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-3.png?raw=true)
+
+### Process
+We changed code to use general languages to process but we kept process almost as same as Baseline.
+
+### Data
+We used projects for more Languages like C++. Also, we downloaded the data again for Assignment 3. So, any new commits for the used projects were also part of the contribution in stats.
 
