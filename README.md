@@ -12,22 +12,33 @@ Refactoring Graph Script: https://github.com/maheshmistry/MSRRefactoringGraphRep
 
 ### Requirements
    For Java Project:
-        Install Java (Optional, if you already have java and JDK installed no need to do this step)
-        1. Go to link: https://www.java.com/en/download/
-        2. Click on "Agree and start free download".
-        3. After the download finish, run the "jre-8u281.exe" file.
-        4. Click on install and after successful install finish it.
-        5. You have sucessfully installed java.
-        6. To confirm the successful install run "java -verison" in terminal and you should see the versions.
+   
+   Install Java (Optional, if you already have java and JDK installed no need to do this step)
+   
+   1. Go to link: https://www.java.com/en/download/
+   
+   2. Click on "Agree and start free download".
+   
+   3. After the download finish, run the "jre-8u281.exe" file.
+   
+   4. Click on install and after successful install finish it.
+   
+   5. You have sucessfully installed java.
+   
+   6. To confirm the successful install run "java -verison" in terminal and you should see the versions.
 
    For Python Project:
-        Python 3+ : https://www.python.org/downloads/
-        Pip : https://pypi.org/project/pip/
-        Jupyter Notebook(little IDE approach but it is simple way to display charts): https://jupyter.org/install
+   
+   Python 3+ : https://www.python.org/downloads/
+   
+   Pip : https://pypi.org/project/pip/
+   
+   Jupyter Notebook(little IDE approach but it is simple way to display charts): https://jupyter.org/install
 
 ### Installation
 
 First of all, clone the project: ``` git clone https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity.git``` 
+
 Next go into the directory ```cd MSRRefactoringGraphThreatToValidatity```
 
 #### RefDiff project:
@@ -68,7 +79,9 @@ Follow the steps below:
 5. You will presented with 3 options after that: 
 
 -> Select option 1 to Generate the refactoring subgraphs. See the results in /data/dataset/saner-2020/graphs.
+
 -> Select option 2 to Generate views of refactoring subgraphs. See the results in /data/dataset/saner-2020/graphviz.
+
 -> Select option 3 to Generate properties of refactoring subgraphs. See the results in /data/dataset/saner-2020/subgraphs_properties.csv.
 
 6. Select 1, which will take refactoring csv file produced from RefDiff project. and make bunch of subgraphs csv files for each Java Project.
@@ -227,6 +240,10 @@ Java:
 C++:
 
 ![alt text](https://github.com/maheshmistry/MSRRefactoringGraphThreatToValidatity/blob/main/data/cpp-rq-3.png?raw=true)
+
+We have noticed something strange, as seen in project tables above C++ projects have alot more commits than Java projects but no. of vertices and edges are really low in C++ projects. We think this is because RefDiff is not able to work very well with C++ as it is able to work with Java projects. This explanation makes more sense in second research question where we see inspite of having 3500+ commits for every project even close to 10000 in one of them. commits recorded in refactoring are really low. 
+
+Second major find can be seen in Research question 3 where, we can that C++ projects are having longer gaps between commits 2500+ days in some of them where Java projects have close 1500 days as maximum gap of commits.
 
 ### Process
 We changed code to use general languages to process but we kept process almost as same as Baseline.
