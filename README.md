@@ -245,6 +245,10 @@ We have noticed something strange, as seen in project tables above C++ projects 
 
 Second major find can be seen in Research question 3 where, we can that C++ projects are having longer gaps between commits 2500+ days in some of them where Java projects have close 1500 days as maximum gap of commits.
 
+### Requirements
+
+We made necesary changes in baseline(Assignment 2), as well as the requirements wer changed to it but for assignment 3 we didnt changed any requirements other than modified assignment 2.
+
 ### Process
 We changed code to use general languages to process but we kept process almost as same as Baseline.
 
