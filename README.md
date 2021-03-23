@@ -247,7 +247,9 @@ Second major find can be seen in Research question 3 where, we can that C++ proj
 
 ### Requirements
 
-We made necesary changes in baseline(Assignment 2), as well as the requirements wer changed to it but for assignment 3 we didnt changed any requirements other than modified assignment 2.
+We made necesary changes in baseline(Assignment 2), as well as the requirements we changed to it but for assignment 3 we didnt changed any requirements other than modified assignment 2.
+
+Please, Follow requirements from Baseline section.
 
 ### Process
 We changed code to use general languages to process but we kept process almost as same as Baseline.
